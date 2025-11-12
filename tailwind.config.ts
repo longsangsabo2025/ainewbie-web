@@ -47,16 +47,10 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
-        },
+        "glow-cyan": "hsl(var(--glow-cyan))",
+        "glow-blue": "hsl(var(--glow-blue))",
+        "tech-dark": "hsl(var(--tech-dark))",
+        "tech-darker": "hsl(var(--tech-darker))",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -84,6 +78,7 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "spin-slow": "spin 8s linear infinite",
       },
     },
   },
