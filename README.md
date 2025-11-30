@@ -1,73 +1,62 @@
-# Welcome to your Lovable project
+# AI Newbie Web
 
-## Project info
+> 🚀 Modern landing page for AI Newbie - Making AI accessible for everyone
 
-**URL**: https://lovable.dev/projects/70e2f03c-54c1-4b42-87c5-e455768eb968
+A beautiful, responsive marketing website built with React, TypeScript, and shadcn/ui components.
 
-## How can I edit this code?
+## ✨ Features
 
-There are several ways of editing your application.
+- **🎨 Modern Design** - Clean, professional UI with Tailwind CSS
+- **📱 Fully Responsive** - Perfect on desktop, tablet, and mobile
+- **⚡ Fast Performance** - Built with Vite for lightning-fast dev and builds
+- **🎭 Smooth Animations** - Engaging animations and transitions
+- **♿ Accessible** - WCAG compliant with Radix UI primitives
+- **🎯 SEO Optimized** - Meta tags and semantic HTML
+- **📊 Analytics Ready** - Google Analytics and Sentry integration
 
-**Use Lovable**
+## 🛠️ Tech Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/70e2f03c-54c1-4b42-87c5-e455768eb968) and start prompting.
+- **React 18** - Latest React with hooks
+- **TypeScript** - Type-safe development
+- **Vite** - Next generation frontend tooling
+- **shadcn/ui** - Beautiful, accessible components
+- **Tailwind CSS** - Utility-first CSS framework
+- **Radix UI** - Unstyled, accessible components
+- **TanStack Query** - Powerful data fetching
+- **Lucide Icons** - Beautiful icon library
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🚀 Quick Start
 
-**Use your preferred IDE**
+### Prerequisites
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- Node.js v14.x or higher
+- npm or yarn
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Installation
 
-Follow these steps:
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+2. **Setup environment:**
+   ```bash
+   # Copy example file
+   cp .env.example .env
+   ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+3. **Run health check:**
+   ```bash
+   .\scripts\health-check.ps1
+   ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+4. **Start development:**
+   ```bash
+   .\scripts\start.ps1
+   # Or manually: npm run dev
+   ```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+5. **Open browser:**
+   - Development: http://localhost:5174
 
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/70e2f03c-54c1-4b42-87c5-e455768eb968) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## 📁 Project Structure

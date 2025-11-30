@@ -43,6 +43,10 @@ All colors MUST be HSL.
     --tech-dark: 215 30% 5%;
     --tech-darker: 215 35% 3%;
     
+    --sidebar-background: 215 25% 10%;
+    --sidebar-foreground: 200 100% 95%;
+    --sidebar-border: 190 100% 40%;
+    
     --gradient-cyber: linear-gradient(135deg, hsl(190 100% 50% / 0.2), hsl(210 100% 60% / 0.1));
     --gradient-glow: linear-gradient(180deg, hsl(190 100% 50% / 0.1), transparent);
     --shadow-glow: 0 0 40px hsl(190 100% 50% / 0.3);
@@ -83,5 +87,59 @@ All colors MUST be HSL.
       linear-gradient(hsl(var(--glow-cyan) / 0.05) 1px, transparent 1px),
       linear-gradient(90deg, hsl(var(--glow-cyan) / 0.05) 1px, transparent 1px);
     background-size: 50px 50px;
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .gradient-purple-pink {
+    background: linear-gradient(135deg, #9b59b6 0%, #e91e63 100%);
+  }
+
+  .gradient-cyan-blue {
+    background: linear-gradient(135deg, #00d4ff 0%, #0066ff 100%);
+  }
+
+  .gradient-purple {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+
+  .card-hover {
+    transition: all 0.3s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 40px rgba(0, 255, 255, 0.2);
+  }
+
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--primary)) transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 3px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.8);
+  }
+
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
