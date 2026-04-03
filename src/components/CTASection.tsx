@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ArrowRight } from "lucide-react";
@@ -39,10 +40,12 @@ export const CTASection = () => {
               <p className="text-muted-foreground mb-6">
                 Khám phá các giải pháp AI tùy chỉnh và dịch vụ tư vấn chuyên nghiệp
               </p>
-              <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-[0_0_20px_hsl(var(--primary)/0.5)] group">
-                Yêu Cầu Tư Vấn
-                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              <Link to="/about">
+                <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-[0_0_20px_hsl(var(--primary)/0.5)] group">
+                  Yêu Cầu Tư Vấn
+                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
             </div>
 
             <div className="bg-card/50 backdrop-blur-sm border border-primary/30 rounded-lg p-8 glow-border hover:scale-105 transition-transform">
@@ -50,10 +53,12 @@ export const CTASection = () => {
               <p className="text-muted-foreground mb-6">
                 Tham gia cộng đồng, chia sẻ workflows và tìm kiếm cơ hội việc làm
               </p>
-              <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-[0_0_20px_hsl(var(--primary)/0.5)] group">
-                Đăng Ký Ngay
-                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              <Link to="/signup">
+                <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-[0_0_20px_hsl(var(--primary)/0.5)] group">
+                  Đăng Ký Ngay
+                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
             </div>
           </div>
 

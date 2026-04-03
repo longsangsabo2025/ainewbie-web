@@ -1,11 +1,11 @@
 {
-  "name": "AI Newbie",
-  "short_name": "AI Newbie",
-  "description": "AI-powered learning platform",
+  "name": "AINewbieVN - Cộng Đồng AI Việt Nam",
+  "short_name": "AINewbieVN",
+  "description": "Nền tảng sản phẩm số AI, workflow tự động hóa, và kết nối nhân tài công nghệ Việt Nam",
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff",
+  "theme_color": "#0ea5e9",
+  "background_color": "#0a0a0f",
   "icons": [
     {
       "src": "favicon.ico",
