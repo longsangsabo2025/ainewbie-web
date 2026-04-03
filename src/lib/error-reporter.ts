@@ -9,7 +9,7 @@ const APP_NAME = 'ainewbie-web';
 
 class ErrorReporter {
   private static instance: ErrorReporter;
-  private errorQueue: any[] = [];
+  private errorQueue: Array<Record<string, unknown>> = [];
   private isProcessing = false;
 
   static getInstance() {
@@ -119,7 +119,7 @@ class ErrorReporter {
   }
 
   // Manual error capture
-  capture(error: Error, context?: Record<string, any>) {
+  capture(error: Error, context?: Record<string, unknown>) {
     this.reportError({
       type: error.name,
       message: error.message,
