@@ -8,6 +8,7 @@ const menuItems = [
   { label: "Trang Chủ", href: "/" },
   { label: "Blog", href: "/blog" },
   { label: "Khóa Học", href: "/courses" },
+  { label: "Bảng Giá", href: "/pricing" },
   { label: "Cộng Đồng", href: "/community" },
   { label: "Về Chúng Tôi", href: "/about" },
 ];

@@ -3,7 +3,9 @@ import { Footer } from "@/components/Footer";
 import { GlowCard } from "@/components/ui/glow-card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Play, Clock, Users, Star, BookOpen, Zap, Brain, Code, Palette, BarChart3, ExternalLink } from "lucide-react";
+import { Play, Clock, Users, Star, BookOpen, Zap, Brain, Code, Palette, BarChart3, ExternalLink, Lock } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useSubscription } from "@/hooks/useSubscription";
 
 const courses = [
   {
@@ -19,6 +21,7 @@ const courses = [
     tags: ["AI Basics", "ChatGPT", "Prompt"],
     youtubePlaylist: "https://youtube.com/@dunglendaidi",
     free: true,
+    requiredTier: "free" as const,
   },
   {
     id: 2,
@@ -33,6 +36,7 @@ const courses = [
     tags: ["Prompt Engineering", "LLM", "Productivity"],
     youtubePlaylist: "https://youtube.com/@dunglendaidi",
     free: true,
+    requiredTier: "free" as const,
   },
   {
     id: 3,
@@ -47,6 +51,7 @@ const courses = [
     tags: ["n8n", "Automation", "No-Code"],
     youtubePlaylist: "https://youtube.com/@dunglendaidi",
     free: true,
+    requiredTier: "free" as const,
   },
   {
     id: 4,
@@ -60,7 +65,8 @@ const courses = [
     rating: 4.9,
     tags: ["Python", "LangChain", "OpenAI API"],
     youtubePlaylist: "https://youtube.com/@dunglendaidi",
-    free: true,
+    free: false,
+    requiredTier: "pro" as const,
   },
   {
     id: 5,
@@ -74,7 +80,8 @@ const courses = [
     rating: 4.8,
     tags: ["Midjourney", "Stable Diffusion", "ComfyUI"],
     youtubePlaylist: "https://youtube.com/@dunglendaidi",
-    free: true,
+    free: false,
+    requiredTier: "pro" as const,
   },
   {
     id: 6,
@@ -88,7 +95,8 @@ const courses = [
     rating: 4.9,
     tags: ["Business", "Solopreneur", "AI Products"],
     youtubePlaylist: "https://youtube.com/@dunglendaidi",
-    free: true,
+    free: false,
+    requiredTier: "pro" as const,
   },
 ];
 
@@ -99,6 +107,8 @@ const levelColors: Record<string, string> = {
 };
 
 const Courses = () => {
+  const { isPro } = useSubscription();
+
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -106,10 +116,10 @@ const Courses = () => {
         <div className="container mx-auto px-4 py-12">
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Khóa Học <span className="glow-text">AI Miễn Phí</span>
+              Khóa Học <span className="glow-text">AI</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-6">
-              Học AI từ cơ bản đến nâng cao qua video bài giảng trên YouTube. Hoàn toàn miễn phí, bằng tiếng Việt.
+              Học AI từ cơ bản đến nâng cao qua video bài giảng trên YouTube. 3 khóa miễn phí, 3 khóa Pro.
             </p>
             <div className="flex justify-center gap-8">
               <div className="text-center">
@@ -128,8 +138,10 @@ const Courses = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {courses.map((course) => (
-              <GlowCard key={course.id} className="group hover:scale-[1.02] transition-transform flex flex-col">
+            {courses.map((course) => {
+              const locked = !course.free && !isPro;
+              return (
+              <GlowCard key={course.id} className={`group hover:scale-[1.02] transition-transform flex flex-col ${locked ? "opacity-80" : ""}`}>
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors glow-box">
                     <course.icon className="w-7 h-7 text-primary" />
@@ -140,7 +152,12 @@ const Courses = () => {
                     </h3>
                     <div className="flex items-center gap-2 mt-1">
                       <Badge variant="outline" className={levelColors[course.level]}>{course.level}</Badge>
-                      {course.free && <Badge variant="outline" className="bg-primary/10 text-primary border-primary/30">Miễn phí</Badge>}
+                      {course.free
+                        ? <Badge variant="outline" className="bg-primary/10 text-primary border-primary/30">Miễn phí</Badge>
+                        : <Badge variant="outline" className="bg-yellow-500/10 text-yellow-400 border-yellow-500/30">
+                            <Lock className="w-3 h-3 mr-1" /> Pro
+                          </Badge>
+                      }
                     </div>
                   </div>
                 </div>
@@ -165,14 +182,24 @@ const Courses = () => {
                 </div>
 
                 <a href={course.youtubePlaylist} target="_blank" rel="noopener noreferrer" className="block">
-                  <Button className="w-full bg-primary hover:bg-primary/90 shadow-[0_0_15px_hsl(var(--primary)/0.4)] group/btn">
-                    <Play className="w-4 h-4 mr-2" />
-                    Xem Trên YouTube
-                    <ExternalLink className="w-3 h-3 ml-2 opacity-50 group-hover/btn:opacity-100" />
-                  </Button>
+                  {locked ? (
+                    <Link to="/pricing" className="block">
+                      <Button variant="outline" className="w-full border-yellow-500/30 text-yellow-400 hover:bg-yellow-500/10">
+                        <Lock className="w-4 h-4 mr-2" />
+                        Nâng cấp Pro để mở khóa
+                      </Button>
+                    </Link>
+                  ) : (
+                    <Button className="w-full bg-primary hover:bg-primary/90 shadow-[0_0_15px_hsl(var(--primary)/0.4)] group/btn">
+                      <Play className="w-4 h-4 mr-2" />
+                      Xem Trên YouTube
+                      <ExternalLink className="w-3 h-3 ml-2 opacity-50 group-hover/btn:opacity-100" />
+                    </Button>
+                  )}
                 </a>
               </GlowCard>
-            ))}
+              );
+            })}
           </div>
 
           <div className="mt-16 text-center">
